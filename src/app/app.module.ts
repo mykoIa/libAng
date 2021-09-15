@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { AuthorComponent} from "./author/author.component";
+import {AppComponent } from './app.component';
+import {AuthorComponent} from "./author/author.component";
 import {HomeComponent} from "./home/home.component";
+import {PublisherComponent} from "./publisher/publisher.component";
+import {BookInformationComponent} from "./book-information/book-information.component";
+import {BookComponent} from "./book/book.component";
 import {RouterModule} from "@angular/router";
 
 const routes = [
   {path: '', component: HomeComponent},
-  {path: 'author', component: AuthorComponent}
+  {path: 'author', component: AuthorComponent},
+  {path: 'publisher', component: PublisherComponent},
+  {path: 'bookInfo', component: BookInformationComponent},
+  {path: 'book', component: BookComponent}
 ]
 @NgModule({
   declarations: [
-    AppComponent, AuthorComponent, HomeComponent
+    AppComponent, AuthorComponent, HomeComponent, PublisherComponent, BookInformationComponent, BookComponent
   ],
   imports: [
     BrowserModule,
