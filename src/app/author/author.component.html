@@ -6,6 +6,21 @@
   <base href="/author">
 </head>
 <body>
-  <h1> Author tab</h1>
+<h1> Author tab</h1>
+
+<table id="authors">
+
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col}}
+    </th>
+  </tr>
+  <tr *ngFor="let author of authors">
+    <td *ngFor="let ind of index">
+      {{author[ind]}}
+    </td>
+  </tr>
+
+</table>
 </body>
 </html>

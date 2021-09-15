@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from "@angular/common/http";
 
-import {AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {AuthorComponent} from "./author/author.component";
 import {HomeComponent} from "./home/home.component";
 import {PublisherComponent} from "./publisher/publisher.component";
@@ -16,15 +17,24 @@ const routes = [
   {path: 'bookInfo', component: BookInformationComponent},
   {path: 'book', component: BookComponent}
 ]
+
 @NgModule({
   declarations: [
-    AppComponent, AuthorComponent, HomeComponent, PublisherComponent, BookInformationComponent, BookComponent
+    AppComponent,
+    AuthorComponent,
+    HomeComponent,
+    PublisherComponent,
+    BookInformationComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+}
