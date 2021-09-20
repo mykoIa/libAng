@@ -12,6 +12,12 @@ import {RouterModule} from "@angular/router";
 import {MatTableModule} from "@angular/material/table";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatButtonModule} from "@angular/material/button";
+import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {AuthorDialog} from "./author-dialog/author-dialog.component";
+import {MatInputModule} from "@angular/material/input";
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -28,17 +34,23 @@ const routes = [
     HomeComponent,
     PublisherComponent,
     BookInformationComponent,
-    BookComponent
+    BookComponent,
+    AuthorDialog
   ],
-    imports: [
-        BrowserModule,
-        RouterModule.forRoot(routes),
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatTableModule,
-        MatTooltipModule
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatTooltipModule,
+    MatButtonModule,
+    FormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Add Author</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Full name: </mat-label>
+    <input matInput [(ngModel)]="data.fullName">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.fullName" cdkFocusInitial>Ok</button>
+</div>

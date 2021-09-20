@@ -1,5 +1,7 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Inject, OnInit} from "@angular/core";
 import {AuthorRestService} from "./author-rest.service";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {AuthorDialog} from "../author-dialog/author-dialog.component";
 
 @Component({
   selector: 'author',
@@ -8,7 +10,9 @@ import {AuthorRestService} from "./author-rest.service";
 })
 export class AuthorComponent implements OnInit {
 
-  constructor(private rs: AuthorRestService) {
+  fullName: string | undefined;
+
+  constructor(private rs: AuthorRestService, public dialog: MatDialog) {
   }
 
   displayedColumns = ["id", "fullName", "update", "delete"];
@@ -31,16 +35,16 @@ export class AuthorComponent implements OnInit {
     this.rs.deleteAuthor(id).subscribe();
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AuthorDialog, {
+      width: '250px',
+      data: {name: this.fullName}
+    });
 
-  // deleteEmployee(employeeId: string) {
-  //   if (confirm("Are you sure you want to delete this ?")) {
-  //     this.employeeService.deleteEmployeeById(employeeId).subscribe(() => {
-  //       this.dataSaved = true;
-  //       this.massage = 'Record Deleted Succefully';
-  //       this.loadAllEmployees();
-  //       this.employeeIdUpdate = null;
-  //       this.employeeForm.reset();
-  //
-  //     });
-  //   }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.fullName = result;
+    });
+  }
+
 }
