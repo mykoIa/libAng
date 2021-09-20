@@ -11,6 +11,7 @@ import {BookComponent} from "./book/book.component";
 import {RouterModule} from "@angular/router";
 import {MatTableModule} from "@angular/material/table";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -29,14 +30,15 @@ const routes = [
     BookInformationComponent,
     BookComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatTableModule
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatTableModule,
+        MatTooltipModule
 
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {RestService} from "../rest.service";
+import {AuthorRestService} from "./author-rest.service";
 
 @Component({
   selector: 'author',
@@ -8,7 +8,7 @@ import {RestService} from "../rest.service";
 })
 export class AuthorComponent implements OnInit {
 
-  constructor(private rs: RestService) {
+  constructor(private rs: AuthorRestService) {
   }
 
   displayedColumns = ["id", "fullName", "update", "delete"];
@@ -26,4 +26,21 @@ export class AuthorComponent implements OnInit {
       }
     )
   }
+
+  deleteAuthorById(id: string) {
+    this.rs.deleteAuthor(id).subscribe();
+  }
+
+
+  // deleteEmployee(employeeId: string) {
+  //   if (confirm("Are you sure you want to delete this ?")) {
+  //     this.employeeService.deleteEmployeeById(employeeId).subscribe(() => {
+  //       this.dataSaved = true;
+  //       this.massage = 'Record Deleted Succefully';
+  //       this.loadAllEmployees();
+  //       this.employeeIdUpdate = null;
+  //       this.employeeForm.reset();
+  //
+  //     });
+  //   }
 }
