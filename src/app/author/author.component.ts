@@ -1,5 +1,4 @@
 import {Component, OnInit} from "@angular/core";
-import {Author} from "./author";
 import {RestService} from "../rest.service";
 
 @Component({
@@ -12,20 +11,18 @@ export class AuthorComponent implements OnInit {
   constructor(private rs: RestService) {
   }
 
-  columns = ["id", "Full Name"];
+  displayedColumns = ["id", "fullName", "update", "delete"];
 
-  index = ["id", "fullName"];
-
-  authors: Author[] = []
+  stringObject: any;
 
   ngOnInit(): void {
     this.rs.getAuthors().subscribe
     (
       (response) => {
-        this.authors = response;
+        this.stringObject = response;
       },
       (error) => {
-        console.log("Error Occured : " + error);
+        console.log("Error Occurred : " + error);
       }
     )
   }

@@ -7,20 +7,25 @@
 </head>
 <body>
 <h1> Author tab</h1>
-
-<table id="authors">
-
-  <tr>
-    <th *ngFor="let col of columns">
-      {{col}}
-    </th>
-  </tr>
-  <tr *ngFor="let author of authors">
-    <td *ngFor="let ind of index">
-      {{author[ind]}}
-    </td>
-  </tr>
-
-</table>
+<mat-table [dataSource]="stringObject" class="mat-elevation-z8" id="table">
+  <ng-container matColumnDef="id" >
+    <th mat-header-cell *matHeaderCellDef id="column_id"> No. </th>
+    <td mat-cell *matCellDef="let author"> {{author.id}} </td>
+  </ng-container>
+  <ng-container matColumnDef="fullName">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let author"> {{author.fullName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="update">
+    <th mat-header-cell *matHeaderCellDef> Update </th>
+    <td mat-cell *matCellDef="let author"> </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef> Delete </th>
+    <td mat-cell *matCellDef="let author">  </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>
 </body>
 </html>

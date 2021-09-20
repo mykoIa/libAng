@@ -9,6 +9,8 @@ import {PublisherComponent} from "./publisher/publisher.component";
 import {BookInformationComponent} from "./book-information/book-information.component";
 import {BookComponent} from "./book/book.component";
 import {RouterModule} from "@angular/router";
+import {MatTableModule} from "@angular/material/table";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +32,10 @@ const routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
