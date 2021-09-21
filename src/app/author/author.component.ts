@@ -1,8 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthorRestService} from "./author-rest.service";
 import {MatDialog} from "@angular/material/dialog";
-import {AuthorDialog} from "./author-dialog/author-dialog.component";
+import {AuthorDialog} from "./add-author-dialog/author-dialog.component";
 import {Author} from "./author";
+import {UpdateAuthorDialogComponent} from "./update-author-dialog/update-author-dialog.component";
 
 @Component({
   selector: 'author',
@@ -17,6 +18,8 @@ export class AuthorComponent implements OnInit {
   displayedColumns = ["id", "fullName", "update", "delete"];
 
   fullName: string | undefined;
+
+  updateFullName: String | undefined;
 
   stringObject: any;
 
@@ -52,4 +55,17 @@ export class AuthorComponent implements OnInit {
     });
   }
 
+  openUpdateDialog() {
+    const dialogRef = this.dialog.open(UpdateAuthorDialogComponent, {
+      width: '250px',
+      data: {name: this.fullName}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.authorRestService.addAuthor(result).subscribe(() => this.ngOnInit());
+        this.ngOnInit();
+      }
+    });
+  }
 }

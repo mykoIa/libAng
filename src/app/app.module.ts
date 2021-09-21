@@ -16,8 +16,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {FormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {AuthorDialog} from "./author/author-dialog/author-dialog.component";
+import {AuthorDialog} from "./author/add-author-dialog/author-dialog.component";
 import {MatInputModule} from "@angular/material/input";
+import {UpdateAuthorDialogComponent} from "./author/update-author-dialog/update-author-dialog.component";
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -35,7 +36,8 @@ const routes = [
     PublisherComponent,
     BookInformationComponent,
     BookComponent,
-    AuthorDialog
+    AuthorDialog,
+    UpdateAuthorDialogComponent
   ],
   imports: [
     BrowserModule,
