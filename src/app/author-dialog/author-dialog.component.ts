@@ -7,6 +7,7 @@ import {Author} from "../author/author";
   templateUrl: 'author-dialog.html',
 })
 export class AuthorDialog {
+  author: Author | undefined;
 
   constructor(
     public dialogRef: MatDialogRef<AuthorDialog>,
