@@ -5,11 +5,13 @@ import {Author} from "./author";
 const urlGetAll = 'http://localhost:8080/api/library/author/getAll';
 const urlDelete = 'http://localhost:8080/api/library/author/delete/';
 const urlAdd = 'http://localhost:8080/api/library/author/add/';
+const urlUpdate = 'http://localhost:8080/api/library/author/update/';
 
 @Injectable({providedIn: 'root'})
 export class AuthorRestService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getAuthors() {
     return this.http.get<Author[]>(urlGetAll);
@@ -20,7 +22,11 @@ export class AuthorRestService {
   }
 
   addAuthor(data: any) {
-    return this.http.post<Author>(urlAdd, { fullName : data });
+    return this.http.post<Author>(urlAdd, {fullName: data});
+  }
+
+  updateAuthor(fullName: any, id: any) {
+    return this.http.put<Author>(urlUpdate, {id: id, fullName: fullName});
   }
 
 }

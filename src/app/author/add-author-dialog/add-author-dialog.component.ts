@@ -11,7 +11,8 @@ export class AuthorDialog {
 
   constructor(
     public dialogRef: MatDialogRef<AuthorDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: Author) {}
+    @Inject(MAT_DIALOG_DATA) public data: Author) {
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

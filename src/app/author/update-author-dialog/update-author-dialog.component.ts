@@ -10,7 +10,8 @@ export class UpdateAuthorDialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<UpdateAuthorDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Author) {}
+    @Inject(MAT_DIALOG_DATA) public data: Author) {
+  }
 
   author: Author | undefined;
 

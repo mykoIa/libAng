@@ -17,11 +17,9 @@ export class AuthorComponent implements OnInit {
 
   displayedColumns = ["id", "fullName", "update", "delete"];
 
-  fullName: string | undefined;
-
-  updateFullName: String | undefined;
-
   stringObject: any;
+
+  id: string | undefined;
 
   author: Author | undefined;
 
@@ -44,7 +42,7 @@ export class AuthorComponent implements OnInit {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(AuthorDialog, {
       width: '250px',
-      data: {name: this.fullName}
+      data: {name: this.author?.fullName}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -55,15 +53,16 @@ export class AuthorComponent implements OnInit {
     });
   }
 
-  openUpdateDialog() {
+  openUpdateDialog(id: string) {
     const dialogRef = this.dialog.open(UpdateAuthorDialogComponent, {
       width: '250px',
-      data: {name: this.fullName}
-    });
+      data: {name: this.author?.fullName}
 
+    });
+    this.id = id;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.authorRestService.addAuthor(result).subscribe(() => this.ngOnInit());
+        this.authorRestService.updateAuthor(result, this.id).subscribe(() => this.ngOnInit());
         this.ngOnInit();
       }
     });
