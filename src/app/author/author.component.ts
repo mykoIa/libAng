@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthorRestService} from "./author-rest.service";
 import {MatDialog} from "@angular/material/dialog";
-import {AuthorDialog} from "./add-author-dialog/author-dialog.component";
+import {AuthorDialog} from "./add-author-dialog/add-author-dialog.component";
 import {Author} from "./author";
 import {UpdateAuthorDialogComponent} from "./update-author-dialog/update-author-dialog.component";
 
@@ -41,7 +41,7 @@ export class AuthorComponent implements OnInit {
     this.authorRestService.deleteAuthor(id).subscribe(() => this.ngOnInit());
   }
 
-  openDialog(): void {
+  openAddDialog(): void {
     const dialogRef = this.dialog.open(AuthorDialog, {
       width: '250px',
       data: {name: this.fullName}

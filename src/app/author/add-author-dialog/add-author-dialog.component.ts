@@ -4,7 +4,7 @@ import {Author} from "../author";
 
 @Component({
   selector: 'author-dialog.html',
-  templateUrl: 'author-dialog.html',
+  templateUrl: 'add-author-dialog.html',
 })
 export class AuthorDialog {
   author: Author | undefined;
