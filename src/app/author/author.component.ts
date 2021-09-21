@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {AuthorRestService} from "./author-rest.service";
 import {MatDialog} from "@angular/material/dialog";
-import {AuthorDialog} from "../author-dialog/author-dialog.component";
+import {AuthorDialog} from "./author-dialog/author-dialog.component";
 import {Author} from "./author";
 
 @Component({
@@ -11,12 +11,12 @@ import {Author} from "./author";
 })
 export class AuthorComponent implements OnInit {
 
-  fullName: string | undefined;
-
   constructor(private authorRestService: AuthorRestService, public dialog: MatDialog) {
   }
 
   displayedColumns = ["id", "fullName", "update", "delete"];
+
+  fullName: string | undefined;
 
   stringObject: any;
 
@@ -35,7 +35,7 @@ export class AuthorComponent implements OnInit {
   }
 
   deleteAuthorById(id: string) {
-    this.authorRestService.deleteAuthor(id).subscribe();
+    this.authorRestService.deleteAuthor(id).subscribe(() => this.ngOnInit());
   }
 
   openDialog(): void {
@@ -45,9 +45,10 @@ export class AuthorComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.authorRestService.addAuthor(result);
-      this.fullName = result;
+      if (result) {
+        this.authorRestService.addAuthor(result).subscribe(() => this.ngOnInit());
+        this.ngOnInit();
+      }
     });
   }
 

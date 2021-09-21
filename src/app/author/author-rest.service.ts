@@ -20,7 +20,7 @@ export class AuthorRestService {
   }
 
   addAuthor(data: any) {
-    return this.http.post<Author>(urlAdd, { fullName : data }).subscribe();
+    return this.http.post<Author>(urlAdd, { fullName : data });
   }
 
 }
