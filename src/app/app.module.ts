@@ -21,6 +21,7 @@ import {MatInputModule} from "@angular/material/input";
 import {UpdateAuthorDialogComponent} from "./author/update-author-dialog/update-author-dialog.component";
 import {AddPublisherDialogComponent} from "./publisher/add-publisher-dialog/add-publisher-dialog.component";
 import {UpdatePublisherDialogComponent} from "./publisher/update-publisher-dialog/update-publisher-dialog.component";
+import {AddBookInformationDialogComponent} from "./book-information/add-book-information-dialog/add-book-information-dialog.component";
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -41,7 +42,8 @@ const routes = [
     AuthorDialog,
     UpdateAuthorDialogComponent,
     AddPublisherDialogComponent,
-    UpdatePublisherDialogComponent
+    UpdatePublisherDialogComponent,
+    AddBookInformationDialogComponent
   ],
   imports: [
     BrowserModule,

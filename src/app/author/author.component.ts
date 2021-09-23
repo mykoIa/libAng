@@ -56,10 +56,9 @@ export class AuthorComponent implements OnInit {
   openUpdateDialog(id: string) {
     const dialogRef = this.dialog.open(UpdateAuthorDialogComponent, {
       width: '250px',
-      data: {name: this.author?.fullName}
+      data: {name: this.author?.fullName, id: this.author?.id}
 
     });
-    this.id = id;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.authorRestService.updateAuthor(result, this.id).subscribe(() => this.ngOnInit());

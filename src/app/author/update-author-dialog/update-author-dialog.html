@@ -3,9 +3,10 @@
   <mat-form-field appearance="fill">
     <mat-label>New full name:</mat-label>
     <input matInput [(ngModel)]="data.fullName">
+    <input matInput hidden [(ngModel)]="data.id">
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.fullName" cdkFocusInitial>Ok</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
 </div>

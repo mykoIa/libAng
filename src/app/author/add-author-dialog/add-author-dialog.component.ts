@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Author} from "../author";
 
 @Component({
-  selector: 'author-dialog.html',
+  selector: 'author-dialog',
   templateUrl: 'add-author-dialog.html',
 })
 export class AuthorDialog {

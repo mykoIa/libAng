@@ -3,9 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Book Information</title>
-  <base href="/author">
+  <base href="/bookInfo">
 </head>
 <body>
-  <h1> Book Information tab</h1>
+<h1> Book Information tab</h1>
+<button mat-button (click)="openAddDialog()">Add Book Information</button>
+<div class="table">
+  <mat-table [dataSource]="stringObject" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef id="column_id"> No.</th>
+      <td mat-cell *matCellDef="let bookInfo"> {{bookInfo.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="genre">
+      <th mat-header-cell *matHeaderCellDef id="column_name"> Genre</th>
+      <td mat-cell *matCellDef="let bookInfo"> {{bookInfo.genre}} </td>
+    </ng-container>
+    <ng-container matColumnDef="numberOfPages">
+      <th mat-header-cell *matHeaderCellDef id="column_page">Pages</th>
+      <td mat-cell *matCellDef="let bookInfo"> {{bookInfo.numberOfPages}} </td>
+    </ng-container>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef> Update</th>
+      <td mat-cell *matCellDef="let bookInfo">
+        <!--          <button type="button" class="btn btn-danger" (click)="openUpdateDialog(bookInfo.id)">Update</button>-->
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete</th>
+      <td mat-cell *matCellDef="let bookInfo">
+        <button type="button" class="btn btn-danger" (click)="deletePublisherById(bookInfo.id)">Delete</button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </mat-table>
+</div>
 </body>
 </html>
