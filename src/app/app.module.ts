@@ -13,12 +13,11 @@ import {MatTableModule} from "@angular/material/table";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatButtonModule} from "@angular/material/button";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {AuthorDialog} from "./author/add-author-dialog/add-author-dialog.component";
 import {MatInputModule} from "@angular/material/input";
-import {UpdateAuthorDialogComponent} from "./author/update-author-dialog/update-author-dialog.component";
+import {AuthorDialogComponent} from "./author/author-dialog/author-dialog.component";
 import {AddPublisherDialogComponent} from "./publisher/add-publisher-dialog/add-publisher-dialog.component";
 import {UpdatePublisherDialogComponent} from "./publisher/update-publisher-dialog/update-publisher-dialog.component";
 import {AddBookInformationDialogComponent} from "./book-information/add-book-information-dialog/add-book-information-dialog.component";
@@ -39,8 +38,7 @@ const routes = [
     PublisherComponent,
     BookInformationComponent,
     BookComponent,
-    AuthorDialog,
-    UpdateAuthorDialogComponent,
+    AuthorDialogComponent,
     AddPublisherDialogComponent,
     UpdatePublisherDialogComponent,
     AddBookInformationDialogComponent
@@ -56,7 +54,8 @@ const routes = [
     FormsModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

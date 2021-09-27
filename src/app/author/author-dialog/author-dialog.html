@@ -1,10 +1,10 @@
 <div mat-dialog-content>
   <p>Update Author</p>
-  <mat-form-field appearance="fill">
-    <mat-label>New full name:</mat-label>
-    <input matInput [(ngModel)]="data.fullName">
-    <input matInput hidden [(ngModel)]="data.id">
-  </mat-form-field>
+  <form [formGroup]="authorForm">
+    <label>Full Name</label>
+    <input type="text" class="form-control" placeholder="Full Name" formControlName="fullName"
+           [(ngModel)]="data.fullName">
+  </form>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
