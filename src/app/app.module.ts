@@ -18,8 +18,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {AuthorDialogComponent} from "./author/author-dialog/author-dialog.component";
-import {AddPublisherDialogComponent} from "./publisher/add-publisher-dialog/add-publisher-dialog.component";
-import {UpdatePublisherDialogComponent} from "./publisher/update-publisher-dialog/update-publisher-dialog.component";
+import {PublisherDialogComponent} from "./publisher/publisher-dialog/publisher-dialog.component";
 import {AddBookInformationDialogComponent} from "./book-information/add-book-information-dialog/add-book-information-dialog.component";
 
 const routes = [
@@ -39,8 +38,7 @@ const routes = [
     BookInformationComponent,
     BookComponent,
     AuthorDialogComponent,
-    AddPublisherDialogComponent,
-    UpdatePublisherDialogComponent,
+    PublisherDialogComponent,
     AddBookInformationDialogComponent
   ],
   imports: [

@@ -19,11 +19,11 @@ export class AuthorRestService {
   }
 
   getAuthorById(id: string) {
-    return this.http.get(urlGetById + id)
+    return this.http.get(urlGetById + id);
   }
 
   deleteAuthor(id: string) {
-    return this.http.delete(urlDelete + id)
+    return this.http.delete(urlDelete + id);
   }
 
   addAuthor(data: any) {

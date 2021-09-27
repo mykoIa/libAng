@@ -1,9 +1,8 @@
 import {Component} from "@angular/core";
 import {Publisher} from "./publisher";
 import {PublisherRestService} from "./publisher-rest.service"
-import {AddPublisherDialogComponent} from "./add-publisher-dialog/add-publisher-dialog.component";
+import {PublisherDialogComponent} from "./publisher-dialog/publisher-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
-import {UpdatePublisherDialogComponent} from "./update-publisher-dialog/update-publisher-dialog.component";
 
 @Component({
   selector: 'publisher',
@@ -18,8 +17,6 @@ export class PublisherComponent {
   displayedColumns = ["id", "publisherName", "update", "delete"];
 
   stringObject: any;
-
-  id: string | undefined;
 
   publisher: Publisher | undefined;
 
@@ -40,9 +37,9 @@ export class PublisherComponent {
   }
 
   openAddDialog(): void {
-    const dialogRef = this.dialog.open(AddPublisherDialogComponent, {
+    const dialogRef = this.dialog.open(PublisherDialogComponent, {
       width: '250px',
-      data: {name: this.publisher?.publisherName}
+      data: {publisherName: this.publisher?.publisherName}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -54,15 +51,14 @@ export class PublisherComponent {
   }
 
   openUpdateDialog(id: string) {
-    const dialogRef = this.dialog.open(UpdatePublisherDialogComponent, {
+    const dialogRef = this.dialog.open(PublisherDialogComponent, {
       width: '250px',
-      data: {name: this.publisher?.publisherName}
+      data: {publisherName: this.publisher?.publisherName, id: id}
 
     });
-    this.id = id;
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.publisherRestService.updatePublisher(result, this.id).subscribe(() => this.ngOnInit());
+        this.publisherRestService.updatePublisher(result).subscribe(() => this.ngOnInit());
         this.ngOnInit();
       }
     });
