@@ -5,7 +5,7 @@ import {FormBuilder} from "@angular/forms";
 import {AuthorRestService} from "../author-rest.service";
 
 @Component({
-  selector: 'update-author-dialog.html',
+  selector: 'author-dialog.html',
   templateUrl: 'author-dialog.html',
 })
 export class AuthorDialogComponent {

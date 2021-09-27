@@ -1,0 +1,44 @@
+.table {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+.table:after {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  vertical-align: top;
+  content: '';
+}
+
+.table > div {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 50px;
+  box-sizing: border-box;
+  text-align: left;
+  vertical-align: top;
+}
+
+#column_id {
+  width: 50px;
+}
+
+#column_name {
+  width: 150px;
+}
+
+#column_bookInfo{
+  width: 250px;
+}
+
+#column_publisher {
+  width: 200px;
+}
+
