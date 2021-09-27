@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+  <p>Book Information</p>
+  <form [formGroup]="bookInfoForm">
+    <label>Genre</label>
+    <input type="text" class="form-control" placeholder="Genre" formControlName="genre"
+           [(ngModel)]="data.genre">
+    <label>Number Of Pages</label>
+    <input type="text" class="form-control" placeholder="Number Of Pages" formControlName="numberOfPages"
+           [(ngModel)]="data.numberOfPages">
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

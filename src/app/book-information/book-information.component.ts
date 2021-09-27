@@ -3,7 +3,7 @@ import {Component} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
 import {BookInformation} from "./book-information";
 import {BookInfoRestService} from "./book-info-rest.service";
-import {AddBookInformationDialogComponent} from "./add-book-information-dialog/add-book-information-dialog.component";
+import {BookInformationDialogComponent} from "./book-information-dialog/book-information-dialog.component";
 
 @Component({
   selector: 'bookInfo',
@@ -18,8 +18,6 @@ export class BookInformationComponent {
   displayedColumns = ["id", "genre", "numberOfPages", "update", "delete"];
 
   stringObject: any;
-
-  id: string | undefined;
 
   bookInfo: BookInformation | undefined;
 
@@ -40,7 +38,7 @@ export class BookInformationComponent {
   }
 
   openAddDialog(): void {
-    const dialogRef = this.dialog.open(AddBookInformationDialogComponent, {
+    const dialogRef = this.dialog.open(BookInformationDialogComponent, {
       width: '250px',
       data: {genre: this.bookInfo?.genre, numberOfPages: this.bookInfo?.numberOfPages}
     });
@@ -53,19 +51,18 @@ export class BookInformationComponent {
     });
   }
 
-  // openUpdateDialog(id: string) {
-  //   const dialogRef = this.dialog.open(UpdatePublisherDialogComponent, {
-  //     width: '250px',
-  //     data: {name: this.bookInfo?.genre}
-  //
-  //   });
-  //   this.id = id;
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     if (result) {
-  //       this.bookInformationService.updateBookInformation(result, this.id).subscribe(() => this.ngOnInit());
-  //       this.ngOnInit();
-  //     }
-  //   });
-  // }
+  openUpdateDialog(id: string) {
+    const dialogRef = this.dialog.open(BookInformationDialogComponent, {
+      width: '250px',
+      data: {id: id, genre: this.bookInfo?.genre, numberOfPages: this.bookInfo?.numberOfPages}
+
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.bookInformationService.updateBookInformation(result).subscribe(() => this.ngOnInit());
+        this.ngOnInit();
+      }
+    });
+  }
 
 }

@@ -19,7 +19,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {AuthorDialogComponent} from "./author/author-dialog/author-dialog.component";
 import {PublisherDialogComponent} from "./publisher/publisher-dialog/publisher-dialog.component";
-import {AddBookInformationDialogComponent} from "./book-information/add-book-information-dialog/add-book-information-dialog.component";
+import {BookInformationDialogComponent} from "./book-information/book-information-dialog/book-information-dialog.component"
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -39,7 +39,7 @@ const routes = [
     BookComponent,
     AuthorDialogComponent,
     PublisherDialogComponent,
-    AddBookInformationDialogComponent
+    BookInformationDialogComponent
   ],
   imports: [
     BrowserModule,
