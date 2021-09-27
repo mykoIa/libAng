@@ -35,10 +35,7 @@ export class BookComponent implements OnInit {
     const dialogRef = this.dialog.open(BookDialogComponent, {
       width: '250px',
       data: {
-        name: this.book?.name,
-        bookInformation: this.book.bookInformation,
-        publisher: this.book.publisher,
-        author: this.book.author
+        name: this.book?.name
       }
     });
 

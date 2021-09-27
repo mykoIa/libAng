@@ -2,7 +2,7 @@
   <p>Book Information</p>
   <form [formGroup]="bookInfoForm">
     <label>Genre</label>
-    <input type="text" class="form-control" placeholder="Genre" formControlName="genre"
+    <input matInput type="text" class="form-control" placeholder="Genre" formControlName="genre"
            [(ngModel)]="data.genre">
     <label>Number Of Pages</label>
     <input type="text" class="form-control" placeholder="Number Of Pages" formControlName="numberOfPages"
