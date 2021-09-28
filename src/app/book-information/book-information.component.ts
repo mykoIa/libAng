@@ -19,7 +19,7 @@ export class BookInformationComponent {
 
   stringObject: any;
 
-  bookInfo: BookInformation | undefined;
+  bookInformation: BookInformation | undefined;
 
   ngOnInit(): void {
     this.bookInformationService.getBookInformation().subscribe
@@ -40,7 +40,7 @@ export class BookInformationComponent {
   openAddDialog(): void {
     const dialogRef = this.dialog.open(BookInformationDialogComponent, {
       width: '250px',
-      data: {genre: this.bookInfo?.genre, numberOfPages: this.bookInfo?.numberOfPages}
+      data: {genre: this.bookInformation?.genre, numberOfPages: this.bookInformation?.numberOfPages}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -54,7 +54,7 @@ export class BookInformationComponent {
   openUpdateDialog(id: string) {
     const dialogRef = this.dialog.open(BookInformationDialogComponent, {
       width: '250px',
-      data: {id: id, genre: this.bookInfo?.genre, numberOfPages: this.bookInfo?.numberOfPages}
+      data: {id: id, genre: this.bookInformation?.genre, numberOfPages: this.bookInformation?.numberOfPages}
 
     });
     dialogRef.afterClosed().subscribe(result => {

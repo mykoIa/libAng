@@ -27,7 +27,7 @@ export class PublisherRestService {
   }
 
   addPublisher(data: any) {
-    return this.http.post<Publisher>(urlAdd, {publisherName: data});
+    return this.http.post<Publisher>(urlAdd, data);
   }
 
   updatePublisher(data: any) {

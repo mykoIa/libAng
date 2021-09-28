@@ -15,17 +15,17 @@ export class BookInformationDialogComponent {
     numberOfPages: ['']
   })
 
-  bookInfo: any;
+  bookInformation: any;
 
   constructor(
     public dialogRef: MatDialogRef<BookInformationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: BookInformation, private formBuilder: FormBuilder, private bookInfoRestService: BookInfoRestService) {
     if (data.id != undefined) {
       this.bookInfoRestService.getBookInformationById(data.id).subscribe((response) => {
-        this.bookInfo = response;
+        this.bookInformation = response;
         this.bookInfoForm.patchValue({
-          genre: this.bookInfo.genre,
-          numberOfPages: this.bookInfo.numberOfPages
+          genre: this.bookInformation.genre,
+          numberOfPages: this.bookInformation.numberOfPages
         })
       });
     }
