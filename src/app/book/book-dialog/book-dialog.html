@@ -31,5 +31,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" (click)="save()">Ok</button>
+  <button mat-button [mat-dialog-close]="data" (click)="save()" cdkFocusInitial>Ok</button>
 </div>

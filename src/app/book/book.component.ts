@@ -42,4 +42,17 @@ export class BookComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => this.ngOnInit());
   }
 
+  deleteBookById(id: string) {
+    this.bookRestService.delete(id).subscribe(() => this.ngOnInit());
+  }
+
+  openUpdateDialog(id: string) {
+    const dialogRef = this.dialog.open(BookDialogComponent, {
+      width: '250px',
+      data: {name: this.book?.name, id: id}
+
+    });
+
+    dialogRef.afterClosed().subscribe(() => this.ngOnInit());
+  }
 }

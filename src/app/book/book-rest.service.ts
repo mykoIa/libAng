@@ -31,10 +31,7 @@ export class BookRestService {
   }
 
   updateBook(data: any) {
-    return this.http.put<Book>(urlUpdate, {
-      id: data.id,
-      genre: data.genre,
-      numberOfPages: data.numberOfPages
-    });
+    return this.http.put<Book>(urlUpdate, data).subscribe();
   }
+
 }

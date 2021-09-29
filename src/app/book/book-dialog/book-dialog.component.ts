@@ -34,29 +34,24 @@ export class BookDialogComponent {
       this.bookRestService.getBookById(data.id).subscribe((response) => {
         this.book = response;
         this.bookForm.patchValue({
-          fullName: this.book.fullName
-        })
-      });
-    } else {
-      this.publisherRestService.getPublisher().subscribe((response) => {
-        this.publisher = response;
-        this.bookForm.patchValue({
-          publisher: this.publisher
-        })
-      });
-      this.bookInfoRestService.getBookInformation().subscribe((response) => {
-        this.bookInformation = response;
-        this.bookForm.patchValue({
-          bookInformation: this.bookInformation
-        })
-      });
-      this.authorRestService.getAuthors().subscribe((response) => {
-        this.author = response;
-        this.bookForm.patchValue({
-          author: this.author
-        })
+          name: this.book.name,
+          publisher: this.book.publisher,
+          bookInformation: this.book.bookInformation,
+          author: this.book.author
+        });
+
       });
     }
+    this.publisherRestService.getPublisher().subscribe((response) => {
+      this.publisher = response;
+    });
+    this.bookInfoRestService.getBookInformation().subscribe((response) => {
+      this.bookInformation = response;
+    });
+    this.authorRestService.getAuthors().subscribe((response) => {
+      this.author = response;
+    });
+
   }
 
   onNoClick(): void {
@@ -65,6 +60,11 @@ export class BookDialogComponent {
 
   save() {
     this.book = this.bookForm.value;
-    this.bookRestService.addBook(this.book);
+    if (this.data.id == undefined) {
+      this.bookRestService.addBook(this.book);
+    } else {
+      this.book.id = this.data.id;
+      this.bookRestService.updateBook(this.book);
+    }
   }
 }
