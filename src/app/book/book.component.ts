@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
 import {BookRestService} from "./book-rest.service";
 import {BookDialogComponent} from "./book-dialog/book-dialog.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'book',
@@ -10,7 +11,7 @@ import {BookDialogComponent} from "./book-dialog/book-dialog.component";
 })
 export class BookComponent implements OnInit {
 
-  constructor(private bookRestService: BookRestService, public dialog: MatDialog) {
+  constructor(private bookRestService: BookRestService, public dialog: MatDialog, private snackBar: MatSnackBar) {
   }
 
   displayedColumns = ["id", "name", "bookInformation", "publisher", "author", "update", "delete"];
@@ -43,7 +44,17 @@ export class BookComponent implements OnInit {
   }
 
   deleteBookById(id: string) {
-    this.bookRestService.delete(id).subscribe(() => this.ngOnInit());
+    this.bookRestService.delete(id).subscribe(() => {
+      this.ngOnInit();
+    }, (error) => {
+      this.openSnackBar();
+    });
+  }
+
+  openSnackBar() {
+    this.snackBar.open("This element has connections", '', {
+      duration: 1000
+    });
   }
 
   openUpdateDialog(id: string) {

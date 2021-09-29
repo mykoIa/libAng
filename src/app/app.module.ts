@@ -21,7 +21,8 @@ import {AuthorDialogComponent} from "./author/author-dialog/author-dialog.compon
 import {PublisherDialogComponent} from "./publisher/publisher-dialog/publisher-dialog.component";
 import {BookInformationDialogComponent} from "./book-information/book-information-dialog/book-information-dialog.component";
 import {MatSelectModule} from "@angular/material/select";
-import {BookDialogComponent} from "./book/book-dialog/book-dialog.component"
+import {BookDialogComponent} from "./book/book-dialog/book-dialog.component";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes = [
   {path: '', component: HomeComponent},
@@ -57,7 +58,8 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
 
   ],
   providers: [],

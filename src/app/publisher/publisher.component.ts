@@ -3,6 +3,7 @@ import {Publisher} from "./publisher";
 import {PublisherRestService} from "./publisher-rest.service"
 import {PublisherDialogComponent} from "./publisher-dialog/publisher-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'publisher',
@@ -11,7 +12,7 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class PublisherComponent {
 
-  constructor(private publisherRestService: PublisherRestService, public dialog: MatDialog) {
+  constructor(private publisherRestService: PublisherRestService, public dialog: MatDialog, private snackBar: MatSnackBar) {
   }
 
   displayedColumns = ["id", "publisherName", "update", "delete"];
@@ -36,7 +37,13 @@ export class PublisherComponent {
     this.publisherRestService.deletePublisher(id).subscribe(() => {
       this.ngOnInit();
     }, (error) => {
-      alert("This element has connections")
+      this.openSnackBar();
+    });
+  }
+
+  openSnackBar() {
+    this.snackBar.open("This element has connections", '', {
+      duration: 1000
     });
   }
 

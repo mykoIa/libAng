@@ -3,6 +3,7 @@ import {AuthorRestService} from "./author-rest.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Author} from "./author";
 import {AuthorDialogComponent} from "./author-dialog/author-dialog.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'author',
@@ -11,7 +12,7 @@ import {AuthorDialogComponent} from "./author-dialog/author-dialog.component";
 })
 export class AuthorComponent implements OnInit {
 
-  constructor(private authorRestService: AuthorRestService, public dialog: MatDialog) {
+  constructor(private authorRestService: AuthorRestService, public dialog: MatDialog, private snackBar: MatSnackBar) {
   }
 
   displayedColumns = ["id", "fullName", "update", "delete"];
@@ -36,7 +37,13 @@ export class AuthorComponent implements OnInit {
     this.authorRestService.deleteAuthor(id).subscribe(() => {
       this.ngOnInit();
     }, (error) => {
-      alert("This element has connections")
+      this.openSnackBar();
+    });
+  }
+
+  openSnackBar() {
+    this.snackBar.open("This element has connections", '', {
+      duration: 1000
     });
   }
 
