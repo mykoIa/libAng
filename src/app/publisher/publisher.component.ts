@@ -33,7 +33,11 @@ export class PublisherComponent {
   }
 
   deletePublisherById(id: string) {
-    this.publisherRestService.deletePublisher(id).subscribe(() => this.ngOnInit());
+    this.publisherRestService.deletePublisher(id).subscribe(() => {
+      this.ngOnInit();
+    }, (error) => {
+      alert("This element has connections")
+    });
   }
 
   openAddDialog(): void {

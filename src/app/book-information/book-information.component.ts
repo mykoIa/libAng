@@ -34,7 +34,11 @@ export class BookInformationComponent {
   }
 
   deletePublisherById(id: string) {
-    this.bookInformationService.deleteBookInformation(id).subscribe(() => this.ngOnInit());
+    this.bookInformationService.deleteBookInformation(id).subscribe(() => {
+      this.ngOnInit();
+    }, (error) => {
+      alert("This element has connections")
+    });
   }
 
   openAddDialog(): void {

@@ -33,7 +33,11 @@ export class AuthorComponent implements OnInit {
   }
 
   deleteAuthorById(id: string) {
-    this.authorRestService.deleteAuthor(id).subscribe(() => this.ngOnInit());
+    this.authorRestService.deleteAuthor(id).subscribe(() => {
+      this.ngOnInit();
+    }, (error) => {
+      alert("This element has connections")
+    });
   }
 
   openAddDialog(): void {
