@@ -2,7 +2,7 @@
   <p>Book</p>
   <form [formGroup]="bookForm">
     <label>Name</label>
-    <input type="text" class="form-control" placeholder="Name" formControlName="name">
+    <input matInput type="text" class="form-control" placeholder="Name" formControlName="name">
     <mat-form-field appearance="fill">
       <mat-label>Select Publisher</mat-label>
       <mat-select formControlName="publisher">
@@ -21,7 +21,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Select Author</mat-label>
-      <mat-select formControlName="author">
+      <mat-select multiple formControlName="author">
         <mat-option *ngFor="let author of author" [value]="author">
           {{author.fullName}}
         </mat-option>
@@ -31,5 +31,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="save()">Ok</button>
+  <button mat-button [mat-dialog-close]="data" (click)="save()">Ok</button>
 </div>

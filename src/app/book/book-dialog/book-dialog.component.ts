@@ -66,6 +66,5 @@ export class BookDialogComponent {
   save() {
     this.book = this.bookForm.value;
     this.bookRestService.addBook(this.book);
-    this.dialogRef.close();
   }
 }

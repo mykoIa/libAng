@@ -36,18 +36,10 @@ export class BookComponent implements OnInit {
       width: '250px',
       data: {
         name: this.book?.name
-        // publisher: this.book.publisher,
-        // bookInfo: this.book.bookInfo,
-        // author: any;
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        // this.bookRestService.addBook(result).subscribe(() => this.ngOnInit());
-        this.ngOnInit();
-      }
-    });
+    dialogRef.afterClosed().subscribe(() => this.ngOnInit());
   }
 
 }
