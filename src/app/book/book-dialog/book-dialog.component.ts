@@ -25,6 +25,10 @@ export class BookDialogComponent {
   bookInformation: any;
   author: any;
 
+  compareObjects(o1: any, o2: any): boolean {
+    return o1.name === o2.name;
+  }
+
   constructor(
     public dialogRef: MatDialogRef<BookDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Book, private formBuilder: FormBuilder,

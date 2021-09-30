@@ -5,7 +5,7 @@
     <input matInput type="text" class="form-control" placeholder="Name" formControlName="name">
     <mat-form-field appearance="fill">
       <mat-label>Select Publisher</mat-label>
-      <mat-select formControlName="publisher">
+      <mat-select formControlName="publisher" [compareWith]="compareObjects">
         <mat-option *ngFor="let publisher of publisher" [value]="publisher">
           {{publisher.publisherName}}
         </mat-option>
@@ -13,7 +13,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Select Book Info</mat-label>
-      <mat-select formControlName="bookInformation">
+      <mat-select formControlName="bookInformation" [compareWith]="compareObjects">
         <mat-option *ngFor="let bookInformation of bookInformation" [value]="bookInformation">
           {{bookInformation.genre}} p. {{bookInformation.numberOfPages}}
         </mat-option>
@@ -21,7 +21,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Select Author</mat-label>
-      <mat-select multiple formControlName="author">
+      <mat-select multiple formControlName="author" [compareWith]="compareObjects">
         <mat-option *ngFor="let author of author" [value]="author">
           {{author.fullName}}
         </mat-option>
