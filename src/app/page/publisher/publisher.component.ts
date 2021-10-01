@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
-import {Publisher} from "./publisher";
-import {PublisherRestService} from "./publisher-rest.service"
+import {Publisher} from "../../model/publisher";
+import {PublisherRestService} from "../../service/publisher-rest.service"
 import {PublisherDialogComponent} from "./publisher-dialog/publisher-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import { MatSnackBar } from '@angular/material/snack-bar';

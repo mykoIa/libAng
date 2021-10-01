@@ -1,8 +1,8 @@
-import {Publisher} from "../publisher";
+import {Publisher} from "../../../model/publisher";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Component, Inject} from "@angular/core";
 import {FormBuilder} from "@angular/forms";
-import {PublisherRestService} from "../publisher-rest.service";
+import {PublisherRestService} from "../../../service/publisher-rest.service";
 
 @Component({
   selector: 'add-publisher-dialog.html',

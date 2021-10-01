@@ -1,11 +1,11 @@
 import {Component, Inject} from "@angular/core";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FormBuilder} from "@angular/forms";
-import {BookRestService} from "../book-rest.service";
-import {Book} from "../book";
-import {PublisherRestService} from "../../publisher/publisher-rest.service";
-import {BookInfoRestService} from "../../book-information/book-info-rest.service";
-import {AuthorRestService} from "../../author/author-rest.service";
+import {BookRestService} from "../../../service/book-rest.service";
+import {Book} from "../../../model/book";
+import {PublisherRestService} from "../../../service/publisher-rest.service";
+import {BookInfoRestService} from "../../../service/book-info-rest.service";
+import {AuthorRestService} from "../../../service/author-rest.service";
 
 @Component({
   selector: 'book-dialog',

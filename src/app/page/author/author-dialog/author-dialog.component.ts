@@ -1,8 +1,8 @@
-import {Author} from "../author";
+import {Author} from "../../../model/author";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {Component, Inject} from "@angular/core";
 import {FormBuilder} from "@angular/forms";
-import {AuthorRestService} from "../author-rest.service";
+import {AuthorRestService} from "../../../service/author-rest.service";
 
 @Component({
   selector: 'author-dialog.html',

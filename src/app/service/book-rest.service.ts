@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Book} from "./book";
+import {Book} from "../model/book";
 
 const urlGetAll = 'http://localhost:8080/api/library/book/getAll';
 const urlGetById = 'http://localhost:8080/api/library/book/getById/';

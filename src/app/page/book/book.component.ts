@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {MatDialog} from "@angular/material/dialog";
-import {BookRestService} from "./book-rest.service";
+import {BookRestService} from "../../service/book-rest.service";
 import {BookDialogComponent} from "./book-dialog/book-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 

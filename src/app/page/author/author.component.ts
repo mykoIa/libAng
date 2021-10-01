@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
-import {AuthorRestService} from "./author-rest.service";
+import {AuthorRestService} from "../../service/author-rest.service";
 import {MatDialog} from "@angular/material/dialog";
-import {Author} from "./author";
+import {Author} from "../../model/author";
 import {AuthorDialogComponent} from "./author-dialog/author-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 

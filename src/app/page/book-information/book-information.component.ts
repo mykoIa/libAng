@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 
 import {MatDialog} from "@angular/material/dialog";
-import {BookInformation} from "./book-information";
-import {BookInfoRestService} from "./book-info-rest.service";
+import {BookInformation} from "../../model/book-information";
+import {BookInfoRestService} from "../../service/book-info-rest.service";
 import {BookInformationDialogComponent} from "./book-information-dialog/book-information-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
