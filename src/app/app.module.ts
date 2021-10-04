@@ -22,14 +22,16 @@ import {PublisherDialogComponent} from "./page/publisher/publisher-dialog/publis
 import {BookInformationDialogComponent} from "./page/book-information/book-information-dialog/book-information-dialog.component";
 import {MatSelectModule} from "@angular/material/select";
 import {BookDialogComponent} from "./page/book/book-dialog/book-dialog.component";
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {LoginComponent} from "./page/login/login.component";
 
 const routes = [
-  {path: '', component: HomeComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'author', component: AuthorComponent},
   {path: 'publisher', component: PublisherComponent},
   {path: 'bookInfo', component: BookInformationComponent},
-  {path: 'book', component: BookComponent}
+  {path: 'book', component: BookComponent},
+  {path: 'login', component: LoginComponent}
 ]
 
 @NgModule({
@@ -43,7 +45,8 @@ const routes = [
     AuthorDialogComponent,
     PublisherDialogComponent,
     BookInformationDialogComponent,
-    BookDialogComponent
+    BookDialogComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,6 @@ const routes = [
     ReactiveFormsModule,
     MatSelectModule,
     MatSnackBarModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
