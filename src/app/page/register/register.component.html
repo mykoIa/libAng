@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <base href="/register">
+</head>
+<body>
+<h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input id="firstName" type="text" formControlName="firstName" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && checkForm.firstName.errors }"/>
+    <div *ngIf="submitted && checkForm.firstName.errors" class="invalid-feedback">
+      <div *ngIf="checkForm.firstName.errors.required" class="errorMessage">First Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input id="lastName" type="text" formControlName="lastName" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && checkForm.lastName.errors }"/>
+    <div *ngIf="submitted && checkForm.lastName.errors" class="invalid-feedback">
+      <div *ngIf="checkForm.lastName.errors.required" class="errorMessage">Last Name is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="login">Username</label>
+    <input id="login" type="text" formControlName="login" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && checkForm.login.errors }"/>
+    <div *ngIf="submitted && checkForm.login.errors" class="invalid-feedback">
+      <div *ngIf="checkForm.login.errors.required" class="errorMessage">Username is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && checkForm.password.errors }"/>
+    <div *ngIf="submitted && checkForm.password.errors" class="invalid-feedback">
+      <div *ngIf="checkForm.password.errors.required" class="errorMessage">Password is required</div>
+      <div *ngIf="checkForm.password.errors.minlength" class="errorMessage">Must be minimum 6 characters</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Register
+    </button>
+    <a routerLink="/login" class="btn btn-link">Cancel</a>
+  </div>
+</form>
+</body>
+</html>

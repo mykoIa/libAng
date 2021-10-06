@@ -24,14 +24,17 @@ import {MatSelectModule} from "@angular/material/select";
 import {BookDialogComponent} from "./page/book/book-dialog/book-dialog.component";
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {LoginComponent} from "./page/login/login.component";
+import {RegisterComponent} from "./page/register/register.component"
 
 const routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'author', component: AuthorComponent},
   {path: 'publisher', component: PublisherComponent},
   {path: 'bookInfo', component: BookInformationComponent},
   {path: 'book', component: BookComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
 ]
 
 @NgModule({
@@ -46,7 +49,8 @@ const routes = [
     PublisherDialogComponent,
     BookInformationDialogComponent,
     BookDialogComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

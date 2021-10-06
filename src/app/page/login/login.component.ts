@@ -10,8 +10,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm = this.formBuilder.group({
-    login: [''],
-    password: ['']
+    login: '',
+    password: ''
   })
   loading = false;
   submitted = false;
@@ -39,7 +39,8 @@ export class LoginComponent implements OnInit {
     }
     this.loading = true;
     this.userRestService.getUserForLogin(this.loginForm.value).subscribe(data => {
-        this.router.navigate([this.returnUrl]);
+        this.router.navigate(['/home']);
+
       },
       error => {
         this.loading = false;

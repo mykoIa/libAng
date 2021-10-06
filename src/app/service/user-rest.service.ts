@@ -24,7 +24,7 @@ export class UserRestService {
   }
 
   getUserForLogin(data: any) {
-    return this.http.get<User[]>(urlGetById, data);
+    return this.http.get<User>(urlLogin + data.login + "&" + data.password);
   }
 
   deleteUser(id: string) {
@@ -38,4 +38,8 @@ export class UserRestService {
   // updateUser(data: any) {
   //   return this.http.put<User>(urlUpdate, {id: data.id, publisherName: data.publisherName});
   // }
+
+  register(data: any) {
+    return this.http.post<User>(urlAdd, data);
+  }
 }
